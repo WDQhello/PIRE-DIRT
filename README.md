@@ -19,7 +19,7 @@ PIRE-DIRT/
 │   └── default.yaml
 ├── docs/
 │   ├── PROJECT_STRUCTURE.md
-│   └── README_zh-CN.md
+│   └── README.md
 ├── scripts/
 │   ├── train_ddp.sh
 │   └── test_ddp.sh
