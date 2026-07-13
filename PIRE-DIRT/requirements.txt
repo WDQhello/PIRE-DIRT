@@ -1,0 +1,10 @@
+# Install the CUDA-compatible PyTorch/torchvision build separately.
+torch>=2.1
+torchvision>=0.16
+numpy>=1.23
+Pillow>=9.5
+PyYAML>=6.0
+safetensors>=0.4
+scikit-learn>=1.2
+timm>=1.0
+tqdm>=4.65
