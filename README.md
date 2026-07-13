@@ -95,9 +95,9 @@ paths:
 
 model:
   dirt_hidden_dim: 256
-  dirt_retain_ratio: 0.10
+  dirt_retain_ratio: 0.70
   use_pire: true
-  pire_strength: 0.20
+  pire_strength: 0.50
 ```
 
 `dirt_retain_ratio` controls the proportion of important patch tokens retained by DIRT. PIRE is applied only during training, preserving the behavior of the original implementation.
