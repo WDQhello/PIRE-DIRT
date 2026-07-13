@@ -1,0 +1,61 @@
+seed: 17
+
+paths:
+  train_root: /opt/data/private/lh/Datasets/AIGIBench/train
+  val_root: /opt/data/private/lh/Datasets/AIGIBench/test
+  test_root: /opt/data/private/lh/Datasets/AIGIBench/test
+  backbone_checkpoint: /opt/data/private/lh/models/vit_large_patch16_dinov3/model.safetensors
+  trained_checkpoint: /opt/data/private/lh/aa_lora/85.56.pth
+  output_dir: outputs
+
+model:
+  backbone_name: vit_large_patch16_dinov3
+  num_classes: 2
+  lora_rank: 2
+  lora_alpha: 2
+
+  # DIRT: Dynamic Important Region Token filtering
+  dirt_hidden_dim: 256
+  dirt_retain_ratio: 0.10
+
+  # PIRE: Prior Information Region Enhancement
+  use_pire: true
+  pire_strength: 0.20
+
+input:
+  crop_size: 224
+  sdv_quality: 90
+  jpeg_domains:
+    - sdv1.4
+    - "1.4"
+    - sd15
+  image_extensions:
+    - .jpg
+    - .jpeg
+    - .png
+    - .webp
+
+train:
+  epochs: 100
+  batch_size_per_gpu: 64
+  num_workers: 8
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  max_grad_norm: 1.0
+  find_unused_parameters: true
+  validate_every: 1
+  selection_metric: acc
+
+validation:
+  batch_size_per_gpu: 64
+  num_workers: 8
+
+test:
+  batch_size_per_gpu: 64
+  num_workers: 8
+  save_csv: test_results.csv
+  save_summary: test_summary.json
+
+distributed:
+  backend: nccl
+  timeout_minutes: 60
