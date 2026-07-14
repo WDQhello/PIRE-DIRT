@@ -69,8 +69,8 @@ Supported extensions are `.jpg`, `.jpeg`, `.png`, and `.webp`.
 Activate the environment containing the correct CUDA-compatible PyTorch build:
 
 ```bash
-conda activate qwen_vl
-cd /opt/data/private/lh/PIRE-DIRT
+conda activate conda_env
+cd path/to/PIRE-DIRT
 pip install -r requirements.txt
 ```
 
@@ -107,8 +107,8 @@ model:
 Recommended command:
 
 ```bash
-cd /opt/data/private/lh/PIRE-DIRT
-conda activate qwen_vl
+cd /path/to/PIRE-DIRT
+conda activate conda_env
 CUDA_VISIBLE_DEVICES=0,1,2 bash scripts/train_ddp.sh
 ```
 
